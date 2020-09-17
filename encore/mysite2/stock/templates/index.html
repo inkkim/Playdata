@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+    <head>
+        <title>Balance: {{ total }}</title>  <!-- ① -->
+        <link rel="stylesheet" href="{% static 'b_style.css' %}"/>
+    </head>
+    <body>
+         <table>
+            <tr>
+                <th>종목명</th>
+                <th>산 날</th>
+                <th>살 때</th>
+                <th>판 날</th>
+                <th>팔 때</th>
+                <th>주식수</th>
+                <th>수익률</th>
+                <th>수익금액</th>
+            </tr>
+            {% for row in rows %}
+            <tr>
+                {% for x in row %}
+                <td>{{ x }}</td>  <!-- ② -->
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            <tr>
+                <th colspan=4>총 수익</th>
+                <th colspan=4>{{ total }}</th>  <!-- ③ -->
+            </tr>
+        </table>
+    </body>
+</html>

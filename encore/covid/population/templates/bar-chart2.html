@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Population by Site{% endblock %}
+
+{% block content %}
+  <div id="container" style="width: 70%;">
+    <canvas id="pie-chart"></canvas>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+
+     var config = {
+      type: 'bar',
+      data: {
+        datasets: [{
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(200, 39, 84, 0.2)',
+                'rgba(180, 89, 24, 0.2)',
+                'rgba(35, 209, 160, 0.2)',
+                'rgba(139, 70, 225, 0.2)',
+                'rgba(223, 59, 231, 0.2)',
+                'rgba(139, 70, 225, 0.2)',
+                'rgba(200, 39, 84, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(180, 89, 24, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(35, 209, 160, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(200, 39, 84, 0.2)',
+                'rgba(180, 89, 24, 0.2)',
+            ],
+          borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(200, 39, 84, 1)',
+                'rgba(180, 89, 24, 1)',
+                'rgba(35, 209, 160, 1)',
+                'rgba(139, 70, 225, 1)'
+            ],
+          data: {{ data2|safe }},
+
+          label: '구별 평균 유동인구 [2020. 08. 09. ~ 2020. 08. 18.]'
+        }
+        ],
+        labels: {{ labels2|safe }},
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+
+  </script>
+
+{% endblock %}
