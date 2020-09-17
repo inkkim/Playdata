@@ -13,3 +13,14 @@
 - Scikit-Learn
 - 학습모델(분류)
 - 회귀분석
+
+## 3. Deep Learning
+
+- Perceptron
+- CNN
+
+## 4. Database
+
+## 5. Web(+)
+
+- Django 
